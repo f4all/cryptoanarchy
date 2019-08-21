@@ -1,0 +1,261 @@
+68b8
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="OpenVPN,Iptables,OpenBGPD,OpenVPN example 0,OpenVPN example 0 - linux client iptables,Pf,VirtualBox,Wiki tutorial for windows clients,Windows-openvpn,XEN,Quagga" />
+		<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=OpenVPN&amp;action=edit" />
+		<link rel="edit" title="Edit" href="/w/index.php?title=OpenVPN&amp;action=edit" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Telecomix Crypto Munitions Bureau (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="/w/index.php?title=OpenVPN&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="http://creativecommons.org/licenses/publicdomain/" />
+		<link rel="alternate" type="application/rss+xml" title="Telecomix Crypto Munitions Bureau RSS Feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Telecomix Crypto Munitions Bureau Atom Feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>OpenVPN - Telecomix Crypto Munitions Bureau</title>
+		<link rel="stylesheet" href="/w/skins/common/shared.css?207" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/w/skins/common/commonPrint.css?207" type="text/css" media="print" />
+		<link rel="stylesheet" href="/w/skins/monobook/main.css?207" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/w/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/w/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/w/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/w/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="/w/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="/w/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="/w/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="/w/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/w/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/w/skins";
+		var wgArticlePath = "/wiki/$1";
+		var wgScriptPath = "/w";
+		var wgScript = "/w/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "https://cryptoanarchy.org";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "OpenVPN";
+		var wgTitle = "OpenVPN";
+		var wgAction = "view";
+		var wgArticleId = "7";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 2778;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="/w/skins/common/wikibits.js?207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/w/skins/common/ajax.js?207"></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-OpenVPN skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">OpenVPN</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Telecomix Crypto Munitions Bureau</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>OpenVPN</b> is a program that can be used to create VPN networks (<i>no shit sherlock!</i>) The program has been ported to most operating systems and is thus fairly standard in VPN networks. What it does is that it allows you to create an encrypted tunnel between computers, so that no one can see what type of traffic is being sent. Combine OpenVPN with <a href="/w/index.php?title=Quagga&amp;action=edit&amp;redlink=1" class="new" title="Quagga (page does not exist)">Quagga</a>, <a href="/wiki/OpenBGPD" title="OpenBGPD">OpenBGPD</a> or something similiar, and we have a darknet. The <a href="http://en.wikipedia.org/wiki/AnoNet" class="external text" title="http://en.wikipedia.org/wiki/AnoNet" rel="nofollow">AnoNet</a> and the <a href="http://en.wikipedia.org/wiki/DarkNET_Conglomeration" class="external text" title="http://en.wikipedia.org/wiki/DarkNET_Conglomeration" rel="nofollow">DarkNET Conglomeration</a> are two darknets that seems to have been built mostly with OpenVPN. (And now anonet has their client port up and running again, nice for them!)
+</p><p>There are roughly speaking two different ways you can configure OpenVPN: With a static key, or with your own Public Key Infrastructure (PKI). Static keys are very simple and forward, it takes very little time and effort to have it up and running. Using PKI is more difficult, but it is much better if you plan on having very many VPN tunnels lying around. Generally, building a PKI is better than static keying unless you have very little time or just refuse to spend an hour or so, to figure everything out.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Interesting_web_sites"><span class="tocnumber">1</span> <span class="toctext">Interesting web sites</span></a></li>
+<li class="toclevel-1"><a href="#Nice_stuff_to_know_before_you_start"><span class="tocnumber">2</span> <span class="toctext">Nice stuff to know before you start</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Windows_and_OpenVPN"><span class="tocnumber">2.1</span> <span class="toctext">Windows and OpenVPN</span></a></li>
+<li class="toclevel-2"><a href="#Gnome.27s_graphical_network_manager_.28default_in_Ubuntu.29"><span class="tocnumber">2.2</span> <span class="toctext">Gnome's graphical network manager (default in Ubuntu)</span></a></li>
+<li class="toclevel-2"><a href="#Tun_and_tap-interfaces"><span class="tocnumber">2.3</span> <span class="toctext">Tun and tap-interfaces</span></a></li>
+<li class="toclevel-2"><a href="#IPv6_and_OpenVPN"><span class="tocnumber">2.4</span> <span class="toctext">IPv6 and OpenVPN</span></a></li>
+<li class="toclevel-2"><a href="#Naming_your_interfaces"><span class="tocnumber">2.5</span> <span class="toctext">Naming your interfaces</span></a></li>
+<li class="toclevel-2"><a href="#MTU_and_OpenVPN"><span class="tocnumber">2.6</span> <span class="toctext">MTU and OpenVPN</span></a></li>
+<li class="toclevel-2"><a href="#Firewalls_and_OpenVPN"><span class="tocnumber">2.7</span> <span class="toctext">Firewalls and OpenVPN</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples_of_how_to_use_OpenVPN"><span class="tocnumber">3</span> <span class="toctext">Examples of how to use OpenVPN</span></a></li>
+<li class="toclevel-1"><a href="#More_about_specific_stuff"><span class="tocnumber">4</span> <span class="toctext">More about specific stuff</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Interesting_web_sites" id="Interesting_web_sites"></a><h2><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=1" title="Edit section: Interesting web sites">edit</a>]</span> <span class="mw-headline"> Interesting web sites </span></h2>
+<ul><li> <a href="http://www.openvpn.net/" class="external text" title="http://www.openvpn.net/" rel="nofollow">OpenVPN.net</a> - official (corporate) web site. The software is free and open though.
+</li><li> <a href="http://openvpn.net/index.php/open-source/documentation/howto.html" class="external text" title="http://openvpn.net/index.php/open-source/documentation/howto.html" rel="nofollow">OpenVPN official HOWTO</a> - <b>Use it!</b> 
+<ul><li> (Using <b><a href="/wiki/OpenVPN_example_0" title="OpenVPN example 0">OpenVPN example 0</a></b> can sometimes be simpler.)
+</li></ul>
+</li><li> <a href="http://en.wikipedia.org/wiki/OpenVPN" class="external text" title="http://en.wikipedia.org/wiki/OpenVPN" rel="nofollow">Wikipedia about OpenVPN</a>
+</li></ul>
+<a name="Nice_stuff_to_know_before_you_start" id="Nice_stuff_to_know_before_you_start"></a><h2><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=2" title="Edit section: Nice stuff to know before you start">edit</a>]</span> <span class="mw-headline"> Nice stuff to know before you start </span></h2>
+<p>Stuff that is not really obvious from the official OpenVPN howto, and a dose of healthy paranoida:
+</p>
+<a name="Windows_and_OpenVPN" id="Windows_and_OpenVPN"></a><h3><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=3" title="Edit section: Windows and OpenVPN">edit</a>]</span> <span class="mw-headline"> Windows and OpenVPN </span></h3>
+<p>Windows needs extra care and patting before it will behave nicely. See this <a href="/wiki/Windows-openvpn" title="Windows-openvpn">config example script</a>.
+</p><p><b><a href="/wiki/Wiki_tutorial_for_windows_clients" title="Wiki tutorial for windows clients" class="mw-redirect">Wiki tutorial for windows clients</a></b>
+</p>
+<a name="Gnome.27s_graphical_network_manager_.28default_in_Ubuntu.29" id="Gnome.27s_graphical_network_manager_.28default_in_Ubuntu.29"></a><h3><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=4" title="Edit section: Gnome&#39;s graphical network manager (default in Ubuntu)">edit</a>]</span> <span class="mw-headline"> Gnome's graphical network manager (default in Ubuntu) </span></h3>
+<p>NetworkManager does not accept key files without passphrases. This is a bug. To work around it, do:
+</p>
+<pre>
+mv my.key my.key.old
+rsa -aes256 -in my.key.old -out my.key
+</pre>
+<p>Pick something short and enter it twice - I went with "1234":
+</p>
+<pre>writing RSA key
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+</pre>
+<a name="Tun_and_tap-interfaces" id="Tun_and_tap-interfaces"></a><h3><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=5" title="Edit section: Tun and tap-interfaces">edit</a>]</span> <span class="mw-headline"> Tun and tap-interfaces </span></h3>
+<p>OpenVPN will create one <b>tun</b> or <b>tap</b> interface on your computer that you can send and receive packets from. One interface will be created per VPN-tunnel you have. These are virtual network interfaces that behaves very much like ordinary physical network interfaces. However, tun interfaces can only carry IPv4 or IPv6 traffic, and nothing else. A tap interface can carry <i>everything</i>:
+</p><p>Using a tun interface means that you will not be able to send, for example, ARP packets. If you are using a tap interface instead, you can send anything through; ARP, IPX, or any other weird protocol. In most cases, a tun interface will work fine.
+</p><p>In *BSD operating systems (at least OpenBSD), the tap interface does not exist. This is not a problem, because you can still configure your tun interfaces to behave just as a tap interface by writing <tt>dev-type tap</tt> somewhere on a line by itself in the config file.
+</p><p>I have no idea how to use OpenVPN i windows. I suggest that you do not use a windows server to handle others sensitive information.
+</p>
+<a name="IPv6_and_OpenVPN" id="IPv6_and_OpenVPN"></a><h3><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=6" title="Edit section: IPv6 and OpenVPN">edit</a>]</span> <span class="mw-headline"> IPv6 and OpenVPN </span></h3>
+<p>If you plan on using IPv6 with OpenVPN you should perhaps consider not using tun interfaces. OpenVPN still has a rather poor support for handling IPv6, so treating it as some bizarre protocol is perhaps better: Use tap&nbsp;:)
+</p><p>IPv6 with OpenVPN does work. It is just a little bit more difficult. It might be worth it though, as it is nice to play around with insanely many addresses. You are also not forced to use any of the <i>few</i> local area network addresses. You can also spell words with the addresses: dead:b17c:15:fa7::1 (dead bitch is fat) is a valid address. The bad thing with IPv6 is perhaps that you need some sort of protocol translation if you want to reach the ordinary internets, as most of us will not have real IPv6 addresses until the corporate ISPs begin migrating.
+</p>
+<a name="Naming_your_interfaces" id="Naming_your_interfaces"></a><h3><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=7" title="Edit section: Naming your interfaces">edit</a>]</span> <span class="mw-headline"> Naming your interfaces </span></h3>
+<p>It is a good idea to name your interfaces so that they do not just get simple names such as tun0, tun1, tun2, and so on. Using the default and letting the operating system name the interfaces for you could spell trouble if you have lots of interfaces. It will be rather difficult for you if the VPN-tunneling server reboots and the tunnels are automatically set up, <i>with new numbers.</i> If you have written your firewall rules (see <a href="/wiki/Iptables" title="Iptables">iptables</a> or <a href="/wiki/Pf" title="Pf">pf</a>) to use the original names with their original numbers, your networking will now be all scrambled and you would need to reconfigure stuff manually. Of course, this is not a problem if you never reboots (<i>yeah, right</i>), or start the VPN tunnels with your own scripts.
+</p><p>I am not sure, but I do not think that it is possible to name the interfaces in OpenBSD. You will have to start them with a script, in a predefined order. (Hint: Include the scripts for starting the OpenVPN daemons interfaces in /etc/hostname.tunX, where X is 0, 1, 2, 3 or whatever.)
+</p><p>So, how do you name your tunnels? In linux, you would type something like <tt>dev tunSuitableDescribingNameHere</tt> on a line by itself in the config file.
+</p>
+<a name="MTU_and_OpenVPN" id="MTU_and_OpenVPN"></a><h3><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=8" title="Edit section: MTU and OpenVPN">edit</a>]</span> <span class="mw-headline"> MTU and OpenVPN </span></h3>
+<p>If you plan on tunneling sensitive information inside another tunnel, you might want to check your <a href="/w/index.php?title=MTU&amp;action=edit&amp;redlink=1" class="new" title="MTU (page does not exist)">MTU</a>-settings. (More research needs to be done here. If you experiment with it, please contribute.)
+</p>
+<a name="Firewalls_and_OpenVPN" id="Firewalls_and_OpenVPN"></a><h3><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=9" title="Edit section: Firewalls and OpenVPN">edit</a>]</span> <span class="mw-headline"> Firewalls and OpenVPN </span></h3>
+<p>Do not forget to set up a really, really restrictive firewall for your tunnelling server. You do not want your firewall to leak information about who you are. Imagine the following: A person knows that some people are collaborating to build a darknet. By nmap'ing the different core routers in the network from the inside of the darknet, it would be possible to gather some data. For example, it would probably be possible to see which OpenSSH-version is running on the different servers. Then, the same person also nmap's a group of computers from the ordinary internets and check if there is anything that looks like what was seen from inside the network. Most likely, it will then be a rather simple thing to figure out who is who, and all anonymity is broken.
+</p><p>I advice you to be REALLY careful with your firewall rules. Do not just use your firewall to protect yourself from hackers, but also use it to remove <i>all</i> identifying information. Consider dropping almost everything from at least inside the darknet. Also consider using a separate computer, with a separate setup, just for handling the VPN tunnel(s). You could do that with <a href="/wiki/XEN" title="XEN">XEN</a>, <a href="/wiki/VirtualBox" title="VirtualBox">VirtualBox</a>, <a href="/w/index.php?title=KVM&amp;action=edit&amp;redlink=1" class="new" title="KVM (page does not exist)">KVM</a>, <a href="/w/index.php?title=QEMU&amp;action=edit&amp;redlink=1" class="new" title="QEMU (page does not exist)">QEMU</a>, <a href="/w/index.php?title=UML&amp;action=edit&amp;redlink=1" class="new" title="UML (page does not exist)">UML</a>, or with a real physical computer on a shielded off network.
+</p><p>be paranoid&nbsp;:d
+</p>
+<a name="Examples_of_how_to_use_OpenVPN" id="Examples_of_how_to_use_OpenVPN"></a><h2><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=10" title="Edit section: Examples of how to use OpenVPN">edit</a>]</span> <span class="mw-headline"> Examples of how to use OpenVPN </span></h2>
+<ul><li> <a href="/wiki/OpenVPN_example_0" title="OpenVPN example 0">OpenVPN example 0</a> (Goes through <b>all</b> steps required to build a PKI, config files and how to get started)
+<ul><li> <a href="/w/index.php?title=OpenVPN_example_0_-_iptables_rules&amp;action=edit&amp;redlink=1" class="new" title="OpenVPN example 0 - iptables rules (page does not exist)">OpenVPN example 0 - iptables rules</a> (Example routing/firewall script for the linux server)
+</li><li> <a href="/wiki/OpenVPN_example_0_-_linux_client_iptables" title="OpenVPN example 0 - linux client iptables">OpenVPN example 0 - linux client iptables</a> (Example firewall for linux clients)
+</li></ul>
+</li><li> <a href="/w/index.php?title=OpenVPN_example_1&amp;action=edit&amp;redlink=1" class="new" title="OpenVPN example 1 (page does not exist)">OpenVPN example 1</a> (About peering with other operators)
+</li></ul>
+<a name="More_about_specific_stuff" id="More_about_specific_stuff"></a><h2><span class="editsection">[<a href="/w/index.php?title=OpenVPN&amp;action=edit&amp;section=11" title="Edit section: More about specific stuff">edit</a>]</span> <span class="mw-headline"> More about specific stuff </span></h2>
+<p>Consider to instead read the examples above, as they are currently much more detailed in how this works.
+</p>
+<ul><li> <a href="/w/index.php?title=OpenVPN_and_static_keys&amp;action=edit&amp;redlink=1" class="new" title="OpenVPN and static keys (page does not exist)">Static keying</a>
+</li><li> <a href="/w/index.php?title=OpenVPN_and_PKI&amp;action=edit&amp;redlink=1" class="new" title="OpenVPN and PKI (page does not exist)">OpenVPN and PKI</a>
+</li><li> <a href="http://www.dd-wrt.com/wiki/index.php/OpenVPN" class="external text" title="http://www.dd-wrt.com/wiki/index.php/OpenVPN" rel="nofollow">DD-WRT on cron scripts to keep your connection up, etc</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 18/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key cryptoanarchy_wiki:pcache:idhash:7-0!1!0!!en!2 and timestamp 20121020022716 -->
+<div class="printfooter">
+Retrieved from "<a href="https://cryptoanarchy.org/wiki/OpenVPN">https://cryptoanarchy.org/wiki/OpenVPN</a>"</div>
+			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/w/index.php?title=Category:HOWTO&amp;action=edit&amp;redlink=1" class="new" title="Category:HOWTO (page does not exist)">HOWTO</a></span> | <span dir='ltr'><a href="/w/index.php?title=Category:Needs_attention&amp;action=edit&amp;redlink=1" class="new" title="Category:Needs attention (page does not exist)">Needs attention</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/wiki/OpenVPN" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="/w/index.php?title=Talk:OpenVPN&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="/w/index.php?title=OpenVPN&amp;action=edit" title="You can edit this page.&#10;Please use the preview button before saving [e]" accesskey="e">Edit</a></li>
+				 <li id="ca-history"><a href="/w/index.php?title=OpenVPN&amp;action=history" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=OpenVPN" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/w/tcmb.png);" href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage-description"><a href="/wiki/Main_Page">Main Page</a></li>
+				<li id="n-portal"><a href="/wiki/Telecomix_Crypto_Munitions_Bureau:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-currentevents"><a href="/wiki/Telecomix_Crypto_Munitions_Bureau:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/w/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search Telecomix Crypto Munitions Bureau [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/OpenVPN" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/OpenVPN" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=OpenVPN&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=OpenVPN&amp;oldid=2778" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/w/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://creativecommons.org/licenses/publicdomain/"><img src="/w/skins/common/images/public-domain.png" alt='Public Domain' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 6 October 2011, at 02:43.</li>
+					<li id="viewcount">This page has been accessed 5,901 times.</li>
+					<li id="copyright">Content is available under <a href="http://creativecommons.org/licenses/publicdomain/" class="external " title="http://creativecommons.org/licenses/publicdomain/">Public Domain</a>.</li>
+					<li id="privacy"><a href="/wiki/Telecomix_Crypto_Munitions_Bureau:Privacy_policy" title="Telecomix Crypto Munitions Bureau:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/wiki/Telecomix_Crypto_Munitions_Bureau:About" title="Telecomix Crypto Munitions Bureau:About">About Telecomix Crypto Munitions Bureau</a></li>
+					<li id="disclaimer"><a href="/wiki/Telecomix_Crypto_Munitions_Bureau:General_disclaimer" title="Telecomix Crypto Munitions Bureau:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.202 secs. --></body></htm
+3
+l>
+
+0
+
